@@ -41,43 +41,46 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--offwhite);color:v
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;justify-content:space-between;align-items:center;
-  padding:1.5rem 4rem;
-  transition:all .35s;
+  padding:1.2rem 4rem;
+  background:var(--green-deep);
+  transition:padding .35s;
 }
 nav.has-bar{top:35px}
 nav.scrolled{
-  background:rgba(247,244,239,.96);backdrop-filter:blur(10px);
   padding:1rem 4rem;
-  border-bottom:1px solid var(--border);
   top:0!important;
+  box-shadow:0 2px 20px rgba(0,0,0,.2);
 }
 .nav-logo{
   font-family:'Playfair Display',serif;
   font-size:1.15rem;font-weight:400;letter-spacing:.08em;
-  color:#fff;text-decoration:none;transition:color .3s;
+  color:var(--offwhite);text-decoration:none;transition:opacity .3s;
   line-height:1.2;
 }
-.nav-logo span{display:block;font-size:.58rem;font-family:'Instrument Sans',sans-serif;letter-spacing:.25em;text-transform:uppercase;opacity:.7;margin-top:2px}
-nav.scrolled .nav-logo{color:var(--black)}
+.nav-logo:hover{opacity:.8}
+.nav-logo span{display:block;font-size:.58rem;font-family:'Instrument Sans',sans-serif;letter-spacing:.25em;text-transform:uppercase;opacity:.6;margin-top:2px}
+nav.scrolled .nav-logo{color:var(--offwhite)}
 .nav-links{display:flex;gap:2.2rem;list-style:none}
 .nav-links a{
   font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.75);text-decoration:none;transition:color .25s;
+  color:rgba(240,236,229,.75);text-decoration:none;transition:color .25s;
 }
-nav.scrolled .nav-links a{color:var(--muted)}
-.nav-links a:hover{color:var(--green-sage)}
+nav.scrolled .nav-links a{color:rgba(240,236,229,.75)}
+.nav-links a:hover{color:var(--offwhite)}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-btn{
   font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
   padding:.5rem 1.3rem;
-  border:1px solid rgba(255,255,255,.35);
-  color:#fff;text-decoration:none;transition:all .25s;
+  border:1px solid rgba(240,236,229,.35);
+  color:var(--offwhite);text-decoration:none;transition:all .25s;
 }
-nav.scrolled .nav-btn{border-color:var(--border);color:var(--black)}
-.nav-btn:hover,.nav-btn.filled{background:var(--green-deep);border-color:var(--green-deep);color:var(--offwhite)}
+nav.scrolled .nav-btn{border-color:rgba(240,236,229,.35);color:var(--offwhite)}
+.nav-btn:hover{background:rgba(240,236,229,.15);border-color:var(--offwhite)}
+.nav-btn.filled{background:var(--offwhite);color:var(--green-deep);border-color:var(--offwhite)}
+.nav-btn.filled:hover{background:var(--cream);border-color:var(--cream)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{width:22px;height:1.5px;background:#fff;transition:.3s;display:block}
-nav.scrolled .hamburger span{background:var(--black)}
+.hamburger span{width:22px;height:1.5px;background:var(--offwhite);transition:.3s;display:block}
+nav.scrolled .hamburger span{background:var(--offwhite)}
 
 /* ─── MOBILE MENU ─── */
 .mobile-nav{
@@ -300,6 +303,85 @@ section{padding:8rem 4rem}
 .note-text h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--offwhite);margin-bottom:.4rem}
 .note-text p{font-size:.88rem;color:rgba(247,244,239,.5);line-height:1.7}
 
+/* ─── DROP-IN ─── */
+#dropin{background:var(--cream)}
+.dropin-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;
+  align-items:center;margin-top:4rem;
+}
+.dropin-left{}
+.dropin-price-block{
+  display:flex;align-items:flex-end;gap:1rem;margin:2rem 0;
+  border-left:3px solid var(--green-deep);padding-left:1.5rem;
+}
+.dropin-price{
+  font-family:'Playfair Display',serif;
+  font-size:5rem;font-weight:400;line-height:1;color:var(--green-deep);
+}
+.dropin-price sup{font-size:2rem;vertical-align:top;margin-top:.8rem}
+.dropin-price-note{padding-bottom:.8rem}
+.dropin-price-note p{font-size:.8rem;color:var(--muted);line-height:1.6}
+.dropin-price-note strong{color:var(--black);font-size:.85rem}
+.dropin-includes{
+  list-style:none;margin:1.5rem 0 2.5rem;
+}
+.dropin-includes li{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.65rem 0;border-bottom:1px solid var(--border);
+  font-size:.92rem;color:#3e3830;line-height:1.5;
+}
+.dropin-includes li::before{
+  content:'✦';color:var(--green-sage);font-size:.58rem;
+  flex-shrink:0;margin-top:.22rem;
+}
+.dropin-cta-wrap{display:flex;flex-direction:column;gap:.8rem}
+.btn-dropin{
+  display:inline-block;
+  padding:1rem 2.8rem;
+  background:var(--green-deep);color:var(--offwhite);
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;transition:all .28s;font-weight:500;
+  text-align:center;
+}
+.btn-dropin:hover{background:var(--green-sage);transform:translateY(-2px)}
+.dropin-note{
+  font-size:.78rem;color:var(--muted);text-align:center;
+  letter-spacing:.04em;
+}
+.dropin-right{position:relative}
+.dropin-visual{
+  aspect-ratio:4/5;
+  background:linear-gradient(145deg,#1e3528 0%,#2a4a38 40%,#1a2e22 100%);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.dropin-visual-text{
+  font-family:'Playfair Display',serif;
+  font-size:9rem;color:rgba(107,143,98,.1);font-style:italic;
+}
+.dropin-badge{
+  position:absolute;top:2rem;right:-1.5rem;
+  background:var(--tan);color:var(--black);
+  padding:1rem 1.2rem;text-align:center;
+  font-family:'Playfair Display',serif;
+}
+.dropin-badge-top{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+.dropin-badge-price{font-size:2rem;font-weight:400;line-height:1;display:block}
+.dropin-badge-sub{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:.3rem;opacity:.7}
+.dropin-compare{
+  position:absolute;bottom:-1.5rem;left:2rem;right:2rem;
+  background:var(--offwhite);border:1px solid var(--border);
+  padding:1rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.compare-item{text-align:center}
+.compare-price{
+  font-family:'Playfair Display',serif;font-size:1.5rem;
+  color:var(--black);line-height:1;
+}
+.compare-label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.compare-divider{font-size:1.2rem;color:var(--border)}
+
 /* ─── PERFORMANCES ─── */
 #performances{background:var(--offwhite)}
 .perf-header{
@@ -499,6 +581,9 @@ footer{
   .steps-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .join-grid{grid-template-columns:1fr;gap:3rem}
+  .dropin-grid{grid-template-columns:1fr;gap:4rem}
+  .dropin-badge{right:1rem}
+  .dropin-compare{position:static;margin-top:1.5rem}
   .contact-bar{padding:2rem}
   footer{padding:1.5rem 2rem}
 }
@@ -535,6 +620,7 @@ footer{
   <ul class="nav-links">
     <li><a href="#about">关于我们</a></li>
     <li><a href="#membership">会员</a></li>
+    <li><a href="#dropin">体验课</a></li>
     <li><a href="#performances">演出</a></li>
     <li><a href="#team">团队</a></li>
     <li><a href="#join">加入</a></li>
@@ -553,6 +639,7 @@ footer{
   <button class="mobile-close" onclick="closeMenu()">✕</button>
   <a href="#about" onclick="closeMenu()">关于我们</a>
   <a href="#membership" onclick="closeMenu()">会员制度</a>
+  <a href="#dropin" onclick="closeMenu()">单次体验课</a>
   <a href="#performances" onclick="closeMenu()">演出</a>
   <a href="#team" onclick="closeMenu()">团队</a>
   <a href="#join" onclick="closeMenu()">加入 / 联系</a>
@@ -809,6 +896,74 @@ footer{
         </div>
         <a href="#join" class="ticket-btn">提前关注</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DROP-IN -->
+<section id="dropin">
+  <div class="max">
+    <div class="dropin-grid">
+
+      <!-- LEFT: info -->
+      <div class="rv">
+        <div class="section-label">单次体验</div>
+        <h2 class="section-title">不确定？先来<em>体验一次</em></h2>
+        <p style="font-size:1rem;color:#3e3830;line-height:1.9;margin-top:1.2rem">
+          不需要承诺，不需要经验。Drop-in 让你以最低门槛亲身感受心声的排练氛围，和团员们一起唱，再决定要不要加入。
+        </p>
+
+        <div class="dropin-price-block">
+          <div class="dropin-price"><sup>$</sup>45</div>
+          <div class="dropin-price-note">
+            <strong>单次 Drop-in</strong>
+            <p>无需预约会员<br>当天报名，直接参与</p>
+          </div>
+        </div>
+
+        <ul class="dropin-includes">
+          <li>参与当周线下合唱排练（约90分钟）</li>
+          <li>声部长现场带唱，适合零基础</li>
+          <li>排练后与团员自由交流</li>
+          <li>专属新人欢迎包（曲谱 + 心声社群邀请）</li>
+          <li>若当场决定加入会员，Drop-in 费用可抵扣首月</li>
+        </ul>
+
+        <div class="dropin-cta-wrap">
+          <!-- 把 YOUR_STRIPE_LINK 替换成你的 Stripe Payment Link -->
+          <a href="YOUR_STRIPE_LINK" target="_blank" class="btn-dropin">
+            立即报名 · $45 →
+          </a>
+          <p class="dropin-note">信用卡 · Apple Pay · Google Pay 均可支付</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: visual + price comparison -->
+      <div class="dropin-right rv" style="transition-delay:.15s">
+        <div class="dropin-visual">
+          <div class="dropin-visual-text">♪</div>
+          <div class="dropin-badge">
+            <span class="dropin-badge-top">单次价格</span>
+            <span class="dropin-badge-price">$45</span>
+            <span class="dropin-badge-sub">Drop-in</span>
+          </div>
+        </div>
+        <div class="dropin-compare">
+          <div class="compare-item">
+            <div class="compare-price">$45</div>
+            <div class="compare-label">Drop-in 单次</div>
+          </div>
+          <div class="compare-divider">vs</div>
+          <div class="compare-item">
+            <div class="compare-price" style="color:var(--green-deep)">$28</div>
+            <div class="compare-label">会员均摊/次</div>
+          </div>
+          <div class="compare-item" style="text-align:left;flex:1;padding-left:1rem;border-left:1px solid var(--border)">
+            <div style="font-size:.78rem;color:var(--muted);line-height:1.6">加入会员<br><strong style="color:var(--green-deep)">每次省 $17</strong></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
